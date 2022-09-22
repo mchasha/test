@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var colors_arr = ['#123456', '#FFFFFF', '#000000'];
+        function FindBrightest(colors)
+        {
+            var int_color_array = [];
+            var v_array = [];
+            for (let i = 0; i < colors.length; i++) {
+                int_color_array = [];
+
+                let int_red = Number('0x' + colors[i].substr(1,2));
+                int_color_array.push(int_red);
+
+                let int_green = Number('0x' + colors[i].substr(3, 2));
+                int_color_array.push(int_green);
+    
+                int_blue = Number('0x' + colors[i].substr(5, 2));
+                int_color_array.push(int_blue);
+
+                let max = Math.max.apply(null, int_color_array);
+
+                let v = (max / 255) * 100;
+                v_array.push(v);
+            }
+            let lightest = Math.max.apply(null, v_array);
+            index = v_array.indexOf(lightest);
+            return colors[index];
+        }
+        console.log(FindBrightest(colors_arr));
+        </script>
+</body>
+</html>
