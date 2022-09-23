@@ -10,13 +10,14 @@
 
 <body>
     <?php
-    $colors_arr = array("#FFFFFF", "#123456", "#000000");
+    $colors_arr = array('#F319B6', '#AF3BF7', '#7D32F8', '#13B052', '#509572', '#D40AFD', '#1BDA90', '#FD7734', '#ECF8CD');
 
     function FindBrightest(array $colors)
     {
-        $int_color_array = array();
         $v_array = array();
         for ($i = 0; $i < count($colors); $i++) {
+            $int_color_array = array();
+
             $int_red = hexdec(substr($colors[$i], 1, 2));
             $int_color_array[] = $int_red;
 
